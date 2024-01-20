@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "URL Collector",
+  "version": "1.0",
+  "description": "Collects URLs across tabs and saves them to a file.",
+  "permissions": [
+    "tabs", "<all_urls>", "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "save-urls": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U"
+      },
+      "description": "Save all collected URLs"
+    }
+  }
+}
